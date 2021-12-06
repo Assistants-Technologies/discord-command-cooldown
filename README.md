@@ -21,7 +21,7 @@ npm i discord-command-cooldown
 ```js
 const {CommandCooldown, msToMinutes} = require('discord-command-cooldown');
 
-const earnCashCommandCooldown = new CommandCooldow('earnCash', 60000); // Allow users to execute this command each 60 seconds
+const earnCashCommandCooldown = new CommandCooldown('earnCash', 60000); // Allow users to execute this command each 60 seconds
 
 ...
 if(command == `${prefix}earn`){
