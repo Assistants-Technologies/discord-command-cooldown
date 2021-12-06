@@ -27,7 +27,7 @@ const earnCashCommandCooldown = new CommandCooldow('earnCash', 60000); // Allow 
 if(command == `${prefix}earn`){
     const userCooldowned = await earnCashCommandCooldown.getUser(message.author.id); // Check if user need to be cooldowned
     if(userCooldowned){
-        const timeLeft = msToMinutes(userAllowed.msLeft);
+        const timeLeft = msToMinutes(userCooldowned.msLeft);
         return message.reply(`You need to wait ${timeLeft.minutes + ' minutes and ' + timeLeft.seconds + ' seconds'} before running command again!`);
     }
     
