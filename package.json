@@ -1,0 +1,26 @@
+{
+  "name": "discord-command-cooldown",
+  "version": "1.0.2",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "homepage": "https://github.com/breftejk/discord-command-cooldown",
+  "keywords": [
+    "discord",
+    "discord.js",
+    "discordjs",
+    "discord cooldown",
+    "discord command cooldown",
+    "command cooldown",
+    "cooldown"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/breftejk/discord-command-cooldown.git"
+  }
+}
