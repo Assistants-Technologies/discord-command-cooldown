@@ -65,8 +65,9 @@ module.exports = {
     msToMinutes: (ms) => {
         ms = Number(ms);
         const minutes = Math.floor((ms/1000/60) << 0),
-            seconds = Math.floor((ms/1000) % 60);
+            seconds = Math.floor((ms/1000) % 60),
+            hours = Math.floor((ms / (1000 * 60 * 60)) % 24);
 
-        return { minutes, seconds };
+        return {hours,  minutes, seconds };
     }
 };
