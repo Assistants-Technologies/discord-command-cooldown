@@ -1,6 +1,6 @@
 {
   "name": "discord-command-cooldown",
-  "version": "1.0.6",
+  "version": "1.0.61",
   "description": "A module that allows you to detect if a command should have a cooldown imposed on it and not run for the user. We are above others thanks to the fact that even after restart cooldown is still taken into account according to timeout that was set from the beginning.",
   "main": "index.js",
   "scripts": {
