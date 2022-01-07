@@ -20,15 +20,16 @@ npm i discord-command-cooldown
 
 ```js
 const {CommandCooldown, msToMinutes} = require('discord-command-cooldown');
+const ms = require('ms');
 
-const earnCashCommandCooldown = new CommandCooldown('earnCash', 60000); // Allow users to execute this command each 60 seconds
+const earnCashCommandCooldown = new CommandCooldown('earnCash', ms('5h')); // You can use the function ms('5h') to do a cooldown for 5 hours! This function makes it easier so you dont have to do tons of 0's.
 
 ...
 if(command == `${prefix}earn`){
     const userCooldowned = await earnCashCommandCooldown.getUser(message.author.id); // Check if user need to be cooldowned
     if(userCooldowned){
         const timeLeft = msToMinutes(userCooldowned.msLeft);
-        return message.reply(`You need to wait ${timeLeft.minutes + ' minutes and ' + timeLeft.seconds + ' seconds'} before running command again!`);
+        return message.reply(`You need to wait ${ timeLeft.hours + ' hours, ' + timeLeft.minutes + ' minutes, ' + timeLeft.seconds + ' seconds'} before running command again!`);
     }
     
     // your command stuff
