@@ -60,13 +60,26 @@ class CommandCooldown {
     }
 }
 
+function msToTime(duration, includeZeros=true) {
+    let milliseconds = Math.floor((duration % 1000) / 100),
+        seconds = Math.floor((duration / 1000) % 60),
+        minutes = Math.floor((duration / (1000 * 60)) % 60),
+        hours = Math.floor((duration / (1000 * 60 * 60)) % 24);
+
+    if(includeZeros) {
+        hours = (hours < 10) ? "0" + hours : hours;
+        minutes = (minutes < 10) ? "0" + minutes : minutes;
+        seconds = (seconds < 10) ? "0" + seconds : seconds;
+    }
+
+    return { hours, minutes, seconds};
+}
+
 module.exports = {
     CommandCooldown,
     msToMinutes: (ms) => {
         ms = Number(ms);
-        const minutes = Math.floor((ms/1000/60) << 0),
-            seconds = Math.floor((ms/1000) % 60),
-            hours = Math.floor((ms / (1000 * 60 * 60)) % 24);
+        const {hours, minutes, seconds} = msToTime(ms);
 
         return {hours,  minutes, seconds };
     }
