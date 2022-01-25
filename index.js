@@ -77,9 +77,9 @@ function msToTime(duration, includeZeros=true) {
 
 module.exports = {
     CommandCooldown,
-    msToMinutes: (ms) => {
+    msToMinutes: (ms, includeZeros) => {
         ms = Number(ms);
-        const {hours, minutes, seconds} = msToTime(ms);
+        const {hours, minutes, seconds} = msToTime(ms, includeZeros);
 
         return {hours,  minutes, seconds };
     }
