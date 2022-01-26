@@ -60,7 +60,7 @@ class CommandCooldown {
     }
 }
 
-function msToTime(duration, includeZeros=true) {
+function msToTime(duration, includeZeros) {
     let milliseconds = Math.floor((duration % 1000) / 100),
         seconds = Math.floor((duration / 1000) % 60),
         minutes = Math.floor((duration / (1000 * 60)) % 60),
@@ -77,7 +77,7 @@ function msToTime(duration, includeZeros=true) {
 
 module.exports = {
     CommandCooldown,
-    msToMinutes: (ms, includeZeros) => {
+    msToMinutes: (ms, includeZeros=true) => {
         ms = Number(ms);
         const {hours, minutes, seconds} = msToTime(ms, includeZeros);
 
