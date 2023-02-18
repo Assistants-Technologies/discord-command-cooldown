@@ -34,6 +34,20 @@ async function checkForUser(userID, commandName) {
     return userData;
 }
 
+async function removeUserCommandCooldown(userID, commandName) {
+    const data = fs.readFileSync(path.resolve(__dirname,'activeTimeouts.json'));
+    let activeTimeouts = JSON.parse(data);
+
+    if(!activeTimeouts[commandName]) return false;
+    if(!activeTimeouts[commandName][userID]) return false;
+
+    delete activeTimeouts[commandName][userID];
+
+    fs.writeFileSync(path.resolve(__dirname,'activeTimeouts.json'), JSON.stringify(activeTimeouts, null, 3));
+
+    return true;
+}
+
 class CommandCooldown {
     constructor(commandName, timeout) {
         this.commandName = commandName;
@@ -58,11 +72,14 @@ class CommandCooldown {
     async getUser(userID) {
         return checkForUser(userID, this.commandName);
     }
+
+    async removeCommandCooldown(userID, commandName) {
+        return removeUserCommandCooldown(userID, commandName);
+    }
 }
 
 function msToTime(duration, includeZeros) {
-    let milliseconds = Math.floor((duration % 1000) / 100),
-        seconds = Math.floor((duration / 1000) % 60),
+    let seconds = Math.floor((duration / 1000) % 60),
         minutes = Math.floor((duration / (1000 * 60)) % 60),
         hours = Math.floor((duration / (1000 * 60 * 60)) % 24);
 
