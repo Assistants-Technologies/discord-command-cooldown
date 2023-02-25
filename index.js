@@ -70,8 +70,8 @@ class CommandCooldown {
         return checkForUser(userID, this.commandName);
     }
 
-    async removeCommandCooldown(userID, commandName) {
-        return removeUserCommandCooldown(userID, commandName);
+    async removeUser(userID) {
+        return removeUserCommandCooldown(userID, this.commandName);
     }
 }
 

@@ -21,6 +21,8 @@ export class CommandCooldown {
         timeEnd: Date;
         msLeft: number;
     } | null>;
+
+    removeUser(userID: string): Promise<boolean>;
 }
 
 export function msToMinutes<T extends boolean = true>(
