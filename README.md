@@ -35,6 +35,9 @@ if(command == `${prefix}earn`){
         // and
         await earnCashCommandCooldown.addUser(message.author.id); // Cooldown user again
     }
+    
+    // to remove user command cooldown, use:
+    // await earnCashCommandCooldown.removeUser(message.author.id);
 }
 ...
 ```
